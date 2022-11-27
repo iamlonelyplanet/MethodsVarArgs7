@@ -9,6 +9,7 @@ public class PrimeNumbersWithMethods {
 
             if (checkDels (number, primeNumbers)) {
                 primeNumbers[i] = number;
+                System.out.println("Это простое число");
                 i++;
             }
             number++;
