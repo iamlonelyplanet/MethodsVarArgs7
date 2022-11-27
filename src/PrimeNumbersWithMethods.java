@@ -1,31 +1,35 @@
 public class PrimeNumbersWithMethods {
     public static void main(String[] args) {
         int[] primeNumbers = new int[10];
-        primeNumbers[0] = 2;
-        int i = 1;
-        int number = 3;
+        int i = 0;
+        int number = 2;
 
         while (i < 10) {
             System.out.println("Проверка числа " + number);
 
-            if (checkDels (number)) {
+            if (checkDels (number, primeNumbers)) {
                 primeNumbers[i] = number;
                 i++;
             }
             number++;
         }
 
+        int sum = 0;
         for (int a : primeNumbers) {
             System.out.print(a + " ");
+            sum += a;
         }
+        System.out.println();
+        System.out.println(sum);
     }
-    public static boolean checkDels (int number) {
-        for (int del = 2; del <= Math.sqrt(number); del++) {
-            System.out.println("Проверяем делитель " + del);
-
-            if (number % del == 0) {
-                System.out.println(number + " - составное число, оно делится на " + del);
-                return false;
+    public static boolean checkDels (int number, int[] primeNumbers) {
+        for (int del: primeNumbers) {
+            if (del != 0 & del <= Math.sqrt(number)) {
+                System.out.println("Проверяем делитель " + del);
+                if (number % del == 0) {
+                    System.out.println(number + " - составное число, т.к. делится на " + del);
+                    return false;
+                }
             }
         }
         return true;
