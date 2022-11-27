@@ -15,6 +15,7 @@ public class PrimeNumbers {
                 if (number % del == 0) {
                     System.out.println(number + " - составное число, оно делится на " + del);
                     check *= number % del;
+                    break;
                 }
             }
 
